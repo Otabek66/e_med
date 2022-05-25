@@ -11,7 +11,7 @@ class TextWidget {
       text,
       style: TextStyle(
         color: color ?? ColorConst.blackfortext,
-        fontWeight: FWconst.
+        fontWeight: FWconst.w1
       ),
     );
   }
