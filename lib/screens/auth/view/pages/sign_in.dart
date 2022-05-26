@@ -1,11 +1,12 @@
 
+import 'package:e_med/core/components/check_validator.dart';
 import 'package:e_med/core/constants/font/FontStyles.dart';
 import 'package:e_med/extensions/context_extension.dart';
 import 'package:e_med/screens/auth/cubit/auth_cubit.dart';
 import 'package:e_med/screens/auth/state/auth_state.dart';
 import 'package:e_med/widgets/appbar_widget.dart';
 import 'package:e_med/widgets/button_widget.dart';
-import 'package:e_med/widgets/textform_filed_widget.dart';
+import 'package:e_med/widgets/text_form_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
