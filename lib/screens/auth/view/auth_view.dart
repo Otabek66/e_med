@@ -1,8 +1,8 @@
-
 import 'package:e_med/core/base/base_view.dart';
 import 'package:e_med/screens/auth/cubit/auth_cubit.dart';
 import 'package:e_med/screens/auth/state/auth_state.dart';
 import 'package:e_med/screens/auth/view/pages/confirmation_view.dart';
+import 'package:e_med/screens/auth/view/pages/sign_in.dart';
 import 'package:e_med/screens/auth/view/pages/sign_up_view.dart';
 import 'package:e_med/screens/auth/view/splash/get_started_view.dart';
 import 'package:e_med/screens/auth/view/splash/splash_view.dart';
@@ -30,6 +30,8 @@ class AuthView extends StatelessWidget {
                 return const SplashView();
               } else if (state is AuthInitial) {
                 return const GetStartedView();
+              } else if (state is AuthSignIN) {
+                return SignInView();
               } else if (state is AuthSignUP) {
                 return const SignUpView();
               } else if (state is AuthConfirmation) {
