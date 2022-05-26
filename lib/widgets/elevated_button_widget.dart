@@ -11,7 +11,7 @@ class ElevatedButtonWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(RadiuConst.small),
+          borderRadius: BorderRadius.circular(RadiusConst.small),
         ),
         fixedSize: Size(context.w * 0.896, context.h * 0.083958021),
         primary: ColorConst.kPrimaryColor,

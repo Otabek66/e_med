@@ -8,8 +8,8 @@ import 'package:e_med/widgets/num_input_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ConFirmationView extends StatelessWidget {
-  const ConFirmationView({Key? key}) : super(key: key);
+class ConfirmationView extends StatelessWidget {
+  const ConfirmationView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class ConFirmationView extends StatelessWidget {
             // width: context.w,
             height: context.h * 0.07,
             onPressed: () {
-              context.read<AuthCubit>().changeState(AuthID());
+              context.read<AuthCubit>().changeState(AuthId());
             }),
       ),
       body: SafeArea(

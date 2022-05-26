@@ -22,3 +22,6 @@ class AuthSplash extends AuthState {
 class AuthInitial extends AuthState {
   AuthInitial();
 }
+class AuthId extends AuthState {
+  AuthId();
+}

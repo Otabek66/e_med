@@ -1,4 +1,6 @@
+import 'package:e_med/core/components/box_only_decoration.dart';
 import 'package:e_med/core/constants/font/FontStyles.dart';
+import 'package:e_med/core/constants/icons/icon_const.dart';
 import 'package:e_med/extensions/context_extension.dart';
 import 'package:e_med/screens/auth/cubit/auth_cubit.dart';
 import 'package:e_med/screens/auth/state/auth_state.dart';
@@ -74,7 +76,7 @@ class PersonalIdView extends StatelessWidget {
                               alignment: Alignment.centerLeft,
                               // id code will come from backend
                               child:
-                                  Text("12345678", style: FStyles.headline4s),
+                                  Text("12345678", style: FontStyles.headline4s),
                               decoration: BoxOnlyDecoration.decor(
                                   Colors.grey.shade100,
                                   topLeft: 10.0,
