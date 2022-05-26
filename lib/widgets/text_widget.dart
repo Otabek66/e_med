@@ -15,8 +15,9 @@ class TextWidget {
       style: TextStyle(
         color: color ?? ColorConst.blackfortext,
         fontWeight:fontWeight ?? FontWeight.bold,
-        fontSize: size ?? FontSize.medium
-      ),  
+        fontSize: size ?? FontSize.medium,
+      ),
+      textAlign: TextAlign.center,  
     );
   }
 }
