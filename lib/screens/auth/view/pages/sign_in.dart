@@ -30,7 +30,7 @@ class SignInView extends StatelessWidget {
               alignment: Alignment.center,
               child: Column(
                 children: [
-                  AppBarWidget(text: "Log In"), 
+                  AppBarWidgetNew(text: "Log In"), 
                   Divider(thickness: 1)
                 ],
               ),
@@ -63,7 +63,7 @@ class SignInView extends StatelessWidget {
                               validator: CheckValidator.phoneValidator),
                           SizedBox(height: context.h * 0.04),
                           const Text("Your password",
-                              style: FontStyles.headline3s),
+                              style: FontStyles.headline3blue),
                           SizedBox(height: context.h * 0.01),
                           StatefulBuilder(builder: (context, setState) {
                             return MyTextField.textField(

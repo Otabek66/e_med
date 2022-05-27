@@ -29,8 +29,8 @@ class ConfirmationView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AppBarWidget(
-              text: "Sign Up",
+            AppBarWidgetNew(
+            text:"Sign Up",
               onPressed: () {
                 context.read<AuthCubit>().changeState(AuthSignUP());
               },
