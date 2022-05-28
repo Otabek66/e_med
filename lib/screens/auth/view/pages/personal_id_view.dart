@@ -6,6 +6,7 @@ import 'package:e_med/screens/auth/cubit/auth_cubit.dart';
 import 'package:e_med/screens/auth/state/auth_state.dart';
 import 'package:e_med/widgets/appbar_widget.dart';
 import 'package:e_med/widgets/button_widget.dart';
+import 'package:e_med/widgets/elevated_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,15 +16,11 @@ class PersonalIdView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 40.0),
-        child: ButtonWidgets(
-            child: Text('Go to your account'),
-            height: context.h * 0.07,
-            onPressed: () {
-              // go to next pages
-            }),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: ElevatedButtonWidget.elevatedButton(
+        context,
+        "Go to your accaunt",
+        context.read<AuthCubit>().changeState(HomeMain())
       ),
       body: SafeArea(
         child: Column(

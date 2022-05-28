@@ -7,7 +7,7 @@ import 'package:e_med/core/constants/color/ColorConst.dart';
 import 'package:flutter/material.dart';
 
 class ElevatedButtonWidget {
-  static elevatedButton(BuildContext context, String text, var stateName) {
+  static elevatedButton(BuildContext context, String text, VoidCallback onPressed) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
@@ -17,9 +17,7 @@ class ElevatedButtonWidget {
         primary: ColorConst.kPrimaryColor,
       ),
       child: Text(text,style: const TextStyle(fontSize: FontSize.buttonTextSize),),
-      onPressed: () {
-        context.read<AuthCubit>().changeState(stateName);
-      },
+      onPressed: onPressed
     );
   }
 }

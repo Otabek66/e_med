@@ -16,21 +16,19 @@ class ConfirmationView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: ElevatedButtonWidget.elevatedButton(context, "Confirm", AuthId()),
-      // ButtonWidgets(
-      //       child: Text('Confirm'),
-      //       // width: context.w,
-      //       height: context.h * 0.07,
-      //       onPressed: () {
-      //         context.read<AuthCubit>().changeState(AuthId());
-      //       }),
-      
+      floatingActionButton: ElevatedButtonWidget.elevatedButton(
+        context,
+        "Confirm",
+        () {
+          context.read<AuthCubit>().changeState(HomeMain());
+        },
+      ),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AppBarWidgetNew(
-            text:"Sign Up",
+              text: "Sign Up",
               onPressed: () {
                 context.read<AuthCubit>().changeState(AuthSignUP());
               },

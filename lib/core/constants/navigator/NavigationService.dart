@@ -4,7 +4,7 @@ class NavigationService {
   static final NavigationService _instance = NavigationService.init();
   static NavigationService get instance => _instance;
   NavigationService.init();
-  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   Future<dynamic> pushNamed(String routeName) {
     return navigatorKey.currentState!.pushNamed(routeName);
   }

@@ -7,6 +7,7 @@ import 'package:e_med/screens/auth/view/pages/sign_in.dart';
 import 'package:e_med/screens/auth/view/pages/sign_up_view.dart';
 import 'package:e_med/screens/auth/view/splash/get_started_view.dart';
 import 'package:e_med/screens/auth/view/splash/splash_view.dart';
+import 'package:e_med/screens/home/view/main/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,6 +40,8 @@ class AuthView extends StatelessWidget {
                 return const ConfirmationView();
               } else if (state is AuthId) {
                 return const PersonalIdView();
+              } else if (state is HomeMain) {
+                return const HomeMainView();
               } else {
                 return Container();
               }

@@ -60,7 +60,9 @@ class GetStartedView extends StatelessWidget {
                   child: ElevatedButtonWidget.elevatedButton(
                     context,
                     "get Started",
-                    AuthSignUP(),
+                    (){
+                      context.read<AuthCubit>().changeState(AuthSignUP());
+                    },
                   ),
                 ),
                 SizedBox(

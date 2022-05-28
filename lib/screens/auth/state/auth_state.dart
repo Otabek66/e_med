@@ -25,3 +25,6 @@ class AuthInitial extends AuthState {
 class AuthId extends AuthState {
   AuthId();
 }
+class HomeMain extends AuthState {
+  HomeMain();
+}

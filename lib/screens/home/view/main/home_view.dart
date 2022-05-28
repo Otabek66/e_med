@@ -7,8 +7,8 @@ import 'package:e_med/widgets/navigation_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
+class HomeMainView extends StatelessWidget {
+  const HomeMainView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

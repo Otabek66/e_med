@@ -1,4 +1,5 @@
 import 'package:e_med/screens/auth/view/auth_view.dart';
+import 'package:e_med/services/navigation/navigation_service.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      navigatorKey: NavigationService.navigatorKey,
       home: AuthView(),
     );
   }
