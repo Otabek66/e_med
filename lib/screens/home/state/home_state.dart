@@ -19,6 +19,7 @@ class DoctorState extends HomeState {
 }
 
 class HospitalState extends HomeState {
+  // List globalList;
   HospitalState();
 }
 
