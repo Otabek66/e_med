@@ -2,6 +2,7 @@ import 'package:e_med/screens/home/cubit/home_cubit.dart';
 import 'package:e_med/screens/home/state/home_state.dart';
 import 'package:e_med/screens/home/view/pages/booking/bookingpage.dart';
 import 'package:e_med/screens/home/view/pages/calendar/home_page.dart';
+import 'package:e_med/screens/home/view/pages/hospital/hospital_info_page.dart';
 import 'package:e_med/screens/home/view/pages/hospital/hospital_search.dart';
 import 'package:e_med/screens/home/view/pages/hospital/hospital_view.dart';
 import 'package:e_med/widgets/navigation_bar_widget.dart';
@@ -34,6 +35,8 @@ class HomeMainView extends StatelessWidget {
             );
           } else if (state is HospitalState) {
             return const HospitalSearchView();
+          } else if (state is HospitalInfoState) {
+            return const HospitalInfoView();
           } else if (state is BookingState) {
             return const BookingPage();
           } else {

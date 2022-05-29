@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:e_med/models/hospital_model.dart';
 import 'package:e_med/screens/home/state/home_state.dart';
 import 'package:e_med/screens/home/view/pages/hospital/hospital_search.dart';
 
@@ -57,6 +58,14 @@ class HomeCubit extends Cubit<HomeState> {
     "assets/images/hospitals/hospitalthree.png",
     "assets/images/hospitals/hospitalfour.png",
     "assets/images/hospitals/hospitalfive.png",
+  ];
+
+  List<HospitalModel> hinfo = [
+    HospitalModel("Uzbekistan New International Clinic", "Tashkent, Shaykhontokhur, Navoi street"),
+    HospitalModel("Uzbekistan New International Clinic", "Tashkent, Shaykhontokhur, Navoi street"),
+    HospitalModel("Uzbekistan New International Clinic", "Tashkent, Shaykhontokhur, Navoi street"),
+    HospitalModel("Uzbekistan New International Clinic", "Tashkent, Shaykhontokhur, Navoi street"),
+    HospitalModel("Uzbekistan New International Clinic", "Tashkent, Shaykhontokhur, Navoi street"),
   ];
   }
 

@@ -3,8 +3,10 @@ import 'package:e_med/core/constants/icons/icon_const.dart';
 import 'package:e_med/core/constants/logo/logo_widget.dart';
 import 'package:e_med/extensions/context_extension.dart';
 import 'package:e_med/screens/home/cubit/home_cubit.dart';
+import 'package:e_med/screens/home/state/home_state.dart';
 import 'package:e_med/widgets/app_bar_new.dart';
 import 'package:e_med/widgets/text_form_widget.dart';
+import 'package:e_med/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -14,9 +16,10 @@ import 'package:flutter_svg/svg.dart';
 
 class HospitalSearchView extends StatelessWidget {
   const HospitalSearchView({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    var himage = context.watch<HomeCubit>().himage;
+    var hinfo = context.watch<HomeCubit>().hinfo;
     return Scaffold(
       body: SafeArea(
         child: SizedBox(
@@ -52,28 +55,34 @@ class HospitalSearchView extends StatelessWidget {
               Expanded(
                 child: ListView.builder(
                   itemBuilder: (ctx, ind) {
-                  var himage = context.watch<HomeCubit>().himage;
-                  return Column(
-                    children: [
-                      Container(
-                        width: context.w,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              topRight: Radius.circular(15)),
-                          child: FadeInImage(
-                            fit: BoxFit.cover,
-                           placeholder: AssetImage('assets/images/idmain.png'),
-                            image: AssetImage(himage[ind]),
+                   
+                    return Column(
+                      children: [
+                        InkWell(
+                          child: Container(
+                            width: context.w * 0.893,
+                            child: ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(15),
+                                  topRight: Radius.circular(15)),
+                              child: FadeInImage(
+                                fit: BoxFit.cover,
+                                placeholder:
+                                    AssetImage('assets/gifs/loading.gif'),
+                                image: AssetImage(himage[ind]),
+                              ),
+                            ),
                           ),
+                          onTap: (){
+                            context.read<HomeCubit>().changeState(HospitalInfoState());
+                          },
                         ),
-                      ),
-                      Text("Tashkent international"),
-                      Text("Hospital 1 o nol")
-                    ],
-                  );
-                },
-                itemCount: 4,
+                        TextWidget.textwidget(hinfo[ind].name),
+                        Text(context.watch<HomeCubit>().hinfo[ind].location)
+                      ],
+                    );
+                  },
+                  itemCount: 4,
                 ),
               )
             ],
