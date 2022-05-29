@@ -12,15 +12,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 
 class HospitalInfoView extends StatelessWidget {
   HospitalModel info;
-  HospitalInfoView({Key? key,required this.info}) : super(key: key);
-
+  HospitalInfoView({Key? key, required this.info}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-  
     return Scaffold(
         body: SafeArea(
       child: SizedBox(
@@ -28,21 +27,59 @@ class HospitalInfoView extends StatelessWidget {
         child: Column(
           children: [
             AppBarWidget(
-              trailing: IconConst.filter,
-              leading: InkWell(
-                child:Row(children: [
-                  Icon(Icons.chevron_left)
-                ]),
-                onTap: () {
-                  context.read<HomeCubit>().changeState(HospitalState());
-                },
+                trailing: IconConst.filter,
+                leading: InkWell(
+                  child: Row(children: [Icon(Icons.chevron_left)]),
+                  onTap: () {
+                    context.read<HomeCubit>().changeState(HospitalState());
+                  },
+                ),
+                center: TextWidget.textwidget("Hospital")),
+            CircleAvatar(
+              radius: 60,
+              backgroundImage: AssetImage(info.image),
+            ),
+            TextWidget.textwidget(info.name),
+            Container(
+              width: context.w * 0.893,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ListTile(
+                    title: const Text("Phone number"),
+                    subtitle: Text(info.phoneNumber),
+                    trailing: Image.asset("assets/icons/phone.png"),
+                  ),
+                  listTile("Working time",
+                      Text("${info.workingDay} \n${info.workingHour}")),
+                  listTile(
+                    "Location Link",
+                    Text(
+                      info.locationLink,
+                      style: const TextStyle(color: Colors.blue),
+                    ),
+                  ),
+                  listTile(
+                    "Website",
+                    Text(
+                      info.locationLink,
+                      style: const TextStyle(color: Colors.blue),
+                    ),
+                  ),
+                  TextWidget.textwidget("Doctors at Hospital")
+                ],
               ),
-              center: TextWidget.textwidget("Hospital")
-              ),
-              CircleAvatar(backgroundImage: AssetImage(info.image),)
+            )
           ],
         ),
       ),
     ));
+  }
+
+  ListTile listTile(String title, Text subtitle) {
+    return ListTile(
+      title: Text(title),
+      subtitle: subtitle,
+    );
   }
 }

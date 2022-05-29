@@ -68,6 +68,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/images/hospitals/
+    - assets/images/doctors/
     - assets/gifs/
   #   - images/a_dot_ham.jpeg
 

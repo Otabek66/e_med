@@ -1,3 +1,5 @@
+import 'package:e_med/models/doctors_info_model.dart';
+
 class HospitalModel<String> {
   String? image;
   String? name;
@@ -7,6 +9,8 @@ class HospitalModel<String> {
   String? workingHour;
   String? locationLink;
   String? website;
+  List<DoctorsModel> dInfo;
+
   HospitalModel(
     this.image,
     this.name,
@@ -16,5 +20,5 @@ class HospitalModel<String> {
     this.workingHour,
     this.locationLink,
     this.website,
-  );
+    this.dInfo);
 }

@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:e_med/models/doctors_info_model.dart';
 import 'package:e_med/models/hospital_model.dart';
 import 'package:e_med/screens/home/state/home_state.dart';
 import 'package:e_med/screens/home/view/pages/hospital/hospital_search.dart';
@@ -65,6 +66,18 @@ class HomeCubit extends Cubit<HomeState> {
       "10:00 - 16:00",
       "See on google maps",
       "tashclink.org",
+      [
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        ],
+      
     ),
      HospitalModel(
        "assets/images/hospitals/hospitaltwo.png",
@@ -75,6 +88,17 @@ class HomeCubit extends Cubit<HomeState> {
       "10:00 - 16:00",
       "See on google maps",
       "tashclink.org",
+      [
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        ],
     ),
      HospitalModel(
        "assets/images/hospitals/hospitalthree.png",
@@ -85,6 +109,18 @@ class HomeCubit extends Cubit<HomeState> {
       "10:00 - 16:00",
       "See on google maps",
       "tashclink.org",
+ [
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        ],
+     
     ),
      HospitalModel(
        "assets/images/hospitals/hospitalfour.png",
@@ -95,6 +131,17 @@ class HomeCubit extends Cubit<HomeState> {
       "10:00 - 16:00",
       "See on google maps",
       "tashclink.org",
+      [
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        ],
     ),
      HospitalModel(
        "assets/images/hospitals/hospitalfive.png",
@@ -105,6 +152,17 @@ class HomeCubit extends Cubit<HomeState> {
       "10:00 - 16:00",
       "See on google maps",
       "tashclink.org",
+      [
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog"),
+        ],
     ),
   ];
 }
