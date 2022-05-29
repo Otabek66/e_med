@@ -7,8 +7,10 @@ class AppBarWidget extends StatelessWidget {
   final Widget center;
   final Widget leading;
   final Widget trailing;
+  final Widget bottom;
   const AppBarWidget({
     this.trailing = const SizedBox(),
+    this.bottom = const SizedBox(),
     required this.leading,
     this.center = const Text('Sign up', style: FontStyles.headline3s,),
     Key? key,
@@ -17,22 +19,22 @@ class AppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: context.h * 0.07,
+      height: bottom == SizedBox ? context.h * 0.07 : context.h * 0.193,
       child: Column(children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             leading,
-            const Spacer(),
+            const SizedBox(width: 30,),
             center,
-            const Spacer(),
+            // const Spacer(),
             SizedBox(
               width: context.w * 0.1,
             ),
             trailing
-            
           ],
         ),
+        bottom,
         const Divider(
           color: ColorConst.black,
         )

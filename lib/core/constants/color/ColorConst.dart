@@ -7,5 +7,6 @@ class ColorConst {
   static const Color black = CupertinoColors.black;
   static const Color white = CupertinoColors.white;
   static const Color grey = CupertinoColors.systemGrey;
+  static const Color grey2 = Color.fromRGBO(118, 118, 128, 0.12);
   static const Color red = CupertinoColors.systemRed;
 }

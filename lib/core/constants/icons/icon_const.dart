@@ -5,7 +5,7 @@ import 'package:flutter_svg/svg.dart';
 class IconConst {
   static const eye = Icons.remove_red_eye;
   static SvgPicture logo = SvgPicture.asset('assets/icons/logo.svg');
-  static SvgPicture bluelogo = SvgPicture.asset('assets/icons/bluelogo.svg');
+  static SvgPicture bluelogo = SvgPicture.asset('assets/images/logo/logo_two.svg');
   static SvgPicture title = SvgPicture.asset('assets/icons/title.svg');
   static SvgPicture id = SvgPicture.asset('assets/icons/id.svg');
   static SvgPicture person1 = SvgPicture.asset('assets/icons/person.svg');
@@ -16,5 +16,6 @@ class IconConst {
   static SvgPicture caseicon = SvgPicture.asset('assets/icons/caseicon.svg');
   static SvgPicture syringe = SvgPicture.asset('assets/icons/syring.svg');
   static SvgPicture copy = SvgPicture.asset('assets/icons/copy.svg');
+  static SvgPicture filter = SvgPicture.asset('assets/icons/filter.svg');
 
 }

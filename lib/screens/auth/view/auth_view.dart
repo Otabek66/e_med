@@ -35,7 +35,7 @@ class AuthView extends StatelessWidget {
               } else if (state is AuthSignIN) {
                 return SignInView();
               } else if (state is AuthSignUP) {
-                return const SignUpView();
+                return SignUpView();
               } else if (state is AuthConfirmation) {
                 return const ConfirmationView();
               } else if (state is AuthId) {

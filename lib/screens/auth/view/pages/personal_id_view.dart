@@ -53,13 +53,13 @@ class PersonalIdView extends StatelessWidget {
                           width: 100,
                           child: Image.asset('assets/images/idmain.png')),
                       SizedBox(height: context.h * 0.04),
-                      Text(
+                     const Text(
                         "Doctors use your ID to have an access to your medical informations. We have sent this ID and your password to your number so you don’t forget them",
                         style: FontStyles.headline4s,
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: context.h * 0.04),
-                      Container(
+                     Container(
                         width: context.w,
                         child: Text(
                           "Your ID",

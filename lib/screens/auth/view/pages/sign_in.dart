@@ -1,4 +1,3 @@
-
 import 'package:e_med/core/components/check_validator.dart';
 import 'package:e_med/core/constants/font/FontStyles.dart';
 import 'package:e_med/extensions/context_extension.dart';
@@ -6,6 +5,7 @@ import 'package:e_med/screens/auth/cubit/auth_cubit.dart';
 import 'package:e_med/screens/auth/state/auth_state.dart';
 import 'package:e_med/widgets/appbar_widget.dart';
 import 'package:e_med/widgets/button_widget.dart';
+import 'package:e_med/widgets/elevated_button_widget.dart';
 import 'package:e_med/widgets/text_form_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,7 +30,12 @@ class SignInView extends StatelessWidget {
               alignment: Alignment.center,
               child: Column(
                 children: [
-                  AppBarWidgetNew(text: "Log In"), 
+                  AppBarWidgetNew(
+                    text: "Log In",
+                    onPressed: () {
+                      context.read<AuthCubit>().changeState(AuthInitial());
+                    },
+                  ),
                   Divider(thickness: 1)
                 ],
               ),
@@ -48,14 +53,14 @@ class SignInView extends StatelessWidget {
                         children: [
                           SizedBox(height: context.h * 0.04),
                           const Center(
-                            child: Text(
-                                'Log in to your account',
+                            child: Text('Log in to your account',
                                 style: FontStyles.headline4s,
                                 textAlign: TextAlign.center),
                           ),
                           SizedBox(height: context.h * 0.04),
                           SizedBox(height: context.h * 0.04),
-                          const Text("Phone number", style: FontStyles.headline3s),
+                          const Text("Phone number",
+                              style: FontStyles.headline3s),
                           SizedBox(height: context.h * 0.01),
                           MyTextField.textField(
                               text: "Enter your phone number...",
@@ -65,30 +70,37 @@ class SignInView extends StatelessWidget {
                           const Text("Your password",
                               style: FontStyles.headline3blue),
                           SizedBox(height: context.h * 0.01),
-                          StatefulBuilder(builder: (context, setState) {
-                            return MyTextField.textField(
+                          StatefulBuilder(
+                            builder: (context, setState) {
+                              return MyTextField.textField(
                                 text: "Enter your new password...",
                                 controller: passwordController,
                                 validator: CheckValidator.passwordValidator,
                                 isShown: context.watch<AuthCubit>().getShown,
                                 iconButton: IconButton(
-                                    onPressed: () {
-                                      context.read<AuthCubit>().obSecure();
-                                      setState(() {});
-                                    },
-                                    icon: Icon(Icons.remove_red_eye)));
-                          }),
+                                  onPressed: () {
+                                    context.read<AuthCubit>().obSecure();
+                                    setState(() {});
+                                  },
+                                  icon: Icon(Icons.remove_red_eye),
+                                ),
+                              );
+                            },
+                          ),
                           SizedBox(height: context.h * 0.04),
-                          ButtonWidgets(
-                            child: Text("Continue"),
-                            onPressed: () {
+                          Padding(padding: EdgeInsets.only(left: 10),
+                          child:ElevatedButtonWidget.elevatedButton(
+                            context,
+                            "Continue",
+                            () {
                               if (formKey.currentState!.validate()) {
-                                context.read<AuthCubit>().changeState(AuthConfirmation());
+                                context.read<AuthCubit>().changeState(
+                                      AuthConfirmation(),
+                                    );
                               }
                             },
-                            width: context.w,
-                            height: context.h * 0.07,
-                          ),
+                          ), ),
+                          
                         ],
                       ),
                     ),

@@ -1,4 +1,6 @@
 import 'package:e_med/screens/auth/view/auth_view.dart';
+import 'package:e_med/screens/home/state/home_state.dart';
+import 'package:e_med/screens/home/view/main/home_view.dart';
 import 'package:e_med/services/navigation/navigation_service.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       navigatorKey: NavigationService.navigatorKey,
-      home: AuthView(),
+      home: HomeMainView(),
     );
   }
 }

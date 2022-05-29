@@ -1,8 +1,9 @@
-
 import 'package:e_med/screens/home/cubit/home_cubit.dart';
 import 'package:e_med/screens/home/state/home_state.dart';
 import 'package:e_med/screens/home/view/pages/booking/bookingpage.dart';
 import 'package:e_med/screens/home/view/pages/calendar/home_page.dart';
+import 'package:e_med/screens/home/view/pages/hospital/hospital_search.dart';
+import 'package:e_med/screens/home/view/pages/hospital/hospital_view.dart';
 import 'package:e_med/widgets/navigation_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,9 +33,7 @@ class HomeMainView extends StatelessWidget {
               child: Text('Doctor Page'),
             );
           } else if (state is HospitalState) {
-            return const Center(
-              child: Text('Hospital Page'),
-            );
+            return const HospitalSearchView();
           } else if (state is BookingState) {
             return const BookingPage();
           } else {

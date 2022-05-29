@@ -7,6 +7,7 @@ import 'package:e_med/screens/home/view/pages/calendar/meetingDateSource.dart';
 import 'package:e_med/widgets/app_bar_new.dart';
 import 'package:e_med/widgets/appbar_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 import '../../../../../core/constants/icons/icon_const.dart';
@@ -26,9 +27,11 @@ class HomePage extends StatelessWidget {
               children: [
                 AppBarWidget(
                   trailing: IconConst.bell,
-                  leading: IconButton(
-                    onPressed: () {},
-                    icon: Icon(IconConst.person),
+                  leading: InkWell(
+                    child: CircleAvatar(
+                      foregroundImage: AssetImage("assets/icons/person.png"),
+                    ),
+                    onTap: (){},
                   ),
                   center: SizedBox(
                       height: context.h * 0.050,
@@ -107,4 +110,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
