@@ -18,7 +18,6 @@ class HospitalSearchView extends StatelessWidget {
   const HospitalSearchView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    var himage = context.watch<HomeCubit>().himage;
     var hinfo = context.watch<HomeCubit>().hinfo;
     return Scaffold(
       body: SafeArea(
@@ -69,12 +68,12 @@ class HospitalSearchView extends StatelessWidget {
                                 fit: BoxFit.cover,
                                 placeholder:
                                     AssetImage('assets/gifs/loading.gif'),
-                                image: AssetImage(himage[ind]),
+                                image: AssetImage(hinfo[ind].image),
                               ),
                             ),
                           ),
                           onTap: (){
-                            context.read<HomeCubit>().changeState(HospitalInfoState());
+                            context.read<HomeCubit>().changeState(HospitalInfoState(hinfo[ind]));
                           },
                         ),
                         TextWidget.textwidget(hinfo[ind].name),

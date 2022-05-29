@@ -1,4 +1,5 @@
 import 'package:e_med/core/base/base_view.dart';
+import 'package:e_med/models/hospital_model.dart';
 import 'package:e_med/screens/auth/cubit/auth_cubit.dart';
 import 'package:e_med/screens/auth/state/auth_state.dart';
 import 'package:e_med/screens/auth/view/pages/confirmation_page.dart';
@@ -41,7 +42,7 @@ class AuthView extends StatelessWidget {
               } else if (state is AuthId) {
                 return const PersonalIdView();
               } else if (state is HomeMain) {
-                return const HomeMainView();
+                return  HomeMainView();
               } else {
                 return Container();
               }

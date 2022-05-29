@@ -1,3 +1,5 @@
+import 'package:e_med/models/hospital_model.dart';
+
 abstract class HomeState {
   HomeState();
 }
@@ -23,7 +25,8 @@ class HospitalState extends HomeState {
   HospitalState();
 }
 class HospitalInfoState extends HomeState{
-  HospitalInfoState();
+  HospitalModel hinfo;
+  HospitalInfoState(this.hinfo);
 }
 
 class BookingState {

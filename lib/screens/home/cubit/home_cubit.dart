@@ -3,7 +3,6 @@ import 'package:e_med/models/hospital_model.dart';
 import 'package:e_med/screens/home/state/home_state.dart';
 import 'package:e_med/screens/home/view/pages/hospital/hospital_search.dart';
 
-
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(Homemain());
 
@@ -13,6 +12,10 @@ class HomeCubit extends Cubit<HomeState> {
 
   changeState(HomeState state) {
     emit(state);
+  }
+
+  changeToHinfo(HospitalModel info){
+    emit(HospitalInfoState(info));
   }
 
   changePage(int index) {
@@ -52,20 +55,56 @@ class HomeCubit extends Cubit<HomeState> {
   //     }
   //   }
 
-  List<String> himage = [
-    "assets/images/hospitals/hospitalone.png",
-    "assets/images/hospitals/hospitaltwo.png",
-    "assets/images/hospitals/hospitalthree.png",
-    "assets/images/hospitals/hospitalfour.png",
-    "assets/images/hospitals/hospitalfive.png",
-  ];
-
   List<HospitalModel> hinfo = [
-    HospitalModel("Uzbekistan New International Clinic", "Tashkent, Shaykhontokhur, Navoi street"),
-    HospitalModel("Uzbekistan New International Clinic", "Tashkent, Shaykhontokhur, Navoi street"),
-    HospitalModel("Uzbekistan New International Clinic", "Tashkent, Shaykhontokhur, Navoi street"),
-    HospitalModel("Uzbekistan New International Clinic", "Tashkent, Shaykhontokhur, Navoi street"),
-    HospitalModel("Uzbekistan New International Clinic", "Tashkent, Shaykhontokhur, Navoi street"),
+    HospitalModel(
+      "assets/images/hospitals/hospitalone.png",
+      "Uzbekistan New International Clinic",
+      "Tashkent, Shaykhontokhur, Navoi street",
+      "+998 97 210 11 12",
+      "Monday - Saturday",
+      "10:00 - 16:00",
+      "See on google maps",
+      "tashclink.org",
+    ),
+     HospitalModel(
+       "assets/images/hospitals/hospitaltwo.png",
+      "Uzbekistan New International Clinic",
+      "Tashkent, Shaykhontokhur, Navoi street",
+      "+998 97 210 11 12",
+      "Monday - Saturday",
+      "10:00 - 16:00",
+      "See on google maps",
+      "tashclink.org",
+    ),
+     HospitalModel(
+       "assets/images/hospitals/hospitalthree.png",
+      "Uzbekistan New International Clinic",
+      "Tashkent, Shaykhontokhur, Navoi street",
+      "+998 97 210 11 12",
+      "Monday - Saturday",
+      "10:00 - 16:00",
+      "See on google maps",
+      "tashclink.org",
+    ),
+     HospitalModel(
+       "assets/images/hospitals/hospitalfour.png",
+      "Uzbekistan New International Clinic",
+      "Tashkent, Shaykhontokhur, Navoi street",
+      "+998 97 210 11 12",
+      "Monday - Saturday",
+      "10:00 - 16:00",
+      "See on google maps",
+      "tashclink.org",
+    ),
+     HospitalModel(
+       "assets/images/hospitals/hospitalfive.png",
+      "Uzbekistan New International Clinic",
+      "Tashkent, Shaykhontokhur, Navoi street",
+      "+998 97 210 11 12",
+      "Monday - Saturday",
+      "10:00 - 16:00",
+      "See on google maps",
+      "tashclink.org",
+    ),
   ];
-  }
-
+}

@@ -1,3 +1,4 @@
+import 'package:e_med/models/hospital_model.dart';
 import 'package:e_med/screens/home/cubit/home_cubit.dart';
 import 'package:e_med/screens/home/state/home_state.dart';
 import 'package:e_med/screens/home/view/pages/booking/bookingpage.dart';
@@ -10,10 +11,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeMainView extends StatelessWidget {
-  const HomeMainView({Key? key}) : super(key: key);
-
+  const HomeMainView({Key? key,}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+ 
     return BlocProvider(
       create: (context) => HomeCubit(),
       child: homeScaffold(),
@@ -36,7 +37,7 @@ class HomeMainView extends StatelessWidget {
           } else if (state is HospitalState) {
             return const HospitalSearchView();
           } else if (state is HospitalInfoState) {
-            return const HospitalInfoView();
+            return HospitalInfoView(info: state.hinfo);
           } else if (state is BookingState) {
             return const BookingPage();
           } else {
