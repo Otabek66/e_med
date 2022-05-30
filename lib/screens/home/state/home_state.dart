@@ -29,6 +29,11 @@ class HospitalInfoState extends HomeState{
   HospitalInfoState(this.hinfo);
 }
 
+class DoctorsInfoState extends HomeState{
+  HospitalModel hinfo;
+  DoctorsInfoState(this.hinfo);
+}
+
 class BookingState {
   BookingState();
 }

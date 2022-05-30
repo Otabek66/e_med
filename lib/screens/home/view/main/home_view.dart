@@ -6,15 +6,17 @@ import 'package:e_med/screens/home/view/pages/calendar/home_page.dart';
 import 'package:e_med/screens/home/view/pages/hospital/hospital_info_page.dart';
 import 'package:e_med/screens/home/view/pages/hospital/hospital_search.dart';
 import 'package:e_med/screens/home/view/pages/hospital/hospital_view.dart';
+import 'package:e_med/screens/home/view/pages/treatments/mainsyringe/treatment_view.dart';
 import 'package:e_med/widgets/navigation_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeMainView extends StatelessWidget {
-  const HomeMainView({Key? key,}) : super(key: key);
+  const HomeMainView({
+    Key? key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
- 
     return BlocProvider(
       create: (context) => HomeCubit(),
       child: homeScaffold(),
@@ -27,15 +29,13 @@ class HomeMainView extends StatelessWidget {
           if (state is Homemain) {
             return const HomePage();
           } else if (state is SyringeState) {
-            return const Center(
-              child: Text('Syringe Page'),
-            );
+            return TreatmentView();
           } else if (state is DoctorState) {
             return const Center(
               child: Text('Doctor Page'),
             );
           } else if (state is HospitalState) {
-            return const HospitalSearchView();
+            return HospitalSearchView();
           } else if (state is HospitalInfoState) {
             return HospitalInfoView(info: state.hinfo);
           } else if (state is BookingState) {

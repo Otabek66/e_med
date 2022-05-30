@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:e_med/models/doctors_info_model.dart';
+import 'package:e_med/models/doctors_model.dart';
 import 'package:e_med/models/hospital_model.dart';
 import 'package:e_med/screens/home/state/home_state.dart';
 import 'package:e_med/screens/home/view/pages/hospital/hospital_search.dart';
@@ -17,6 +17,10 @@ class HomeCubit extends Cubit<HomeState> {
 
   changeToHinfo(HospitalModel info){
     emit(HospitalInfoState(info));
+  }
+
+  changeToDinfo(HospitalModel info){
+    emit(DoctorsInfoState(info));
   }
 
   changePage(int index) {

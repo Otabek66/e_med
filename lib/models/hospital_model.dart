@@ -1,4 +1,4 @@
-import 'package:e_med/models/doctors_info_model.dart';
+import 'package:e_med/models/doctors_model.dart';
 
 class HospitalModel<String> {
   String? image;

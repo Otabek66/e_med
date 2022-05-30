@@ -2,6 +2,7 @@ import 'package:e_med/core/constants/color/ColorConst.dart';
 import 'package:e_med/core/constants/icons/icon_const.dart';
 import 'package:e_med/core/constants/logo/logo_widget.dart';
 import 'package:e_med/extensions/context_extension.dart';
+import 'package:e_med/models/hospital_model.dart';
 import 'package:e_med/screens/home/cubit/home_cubit.dart';
 import 'package:e_med/screens/home/state/home_state.dart';
 import 'package:e_med/widgets/app_bar_new.dart';
@@ -15,7 +16,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 class HospitalSearchView extends StatelessWidget {
-  const HospitalSearchView({Key? key}) : super(key: key);
+  
+  HospitalSearchView({Key? key,}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     var hinfo = context.watch<HomeCubit>().hinfo;
@@ -54,7 +56,6 @@ class HospitalSearchView extends StatelessWidget {
               Expanded(
                 child: ListView.builder(
                   itemBuilder: (ctx, ind) {
-                   
                     return Column(
                       children: [
                         InkWell(
