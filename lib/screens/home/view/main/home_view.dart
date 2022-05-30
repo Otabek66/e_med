@@ -38,7 +38,10 @@ class HomeMainView extends StatelessWidget {
             return HospitalSearchView();
           } else if (state is HospitalInfoState) {
             return HospitalInfoView(info: state.hinfo);
-          } else if (state is BookingState) {
+          } 
+          else if (state is DoctorsInfoState) {
+            return HospitalInfoView(info: state.hinfo);
+          }else if (state is BookingState) {
             return const BookingPage();
           } else {
             return Container();
