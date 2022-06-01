@@ -1,6 +1,7 @@
 import 'package:e_med/screens/auth/view/auth_view.dart';
 import 'package:e_med/screens/home/state/home_state.dart';
 import 'package:e_med/screens/home/view/main/home_view.dart';
+import 'package:e_med/screens/home/view/pages/hospital/hospital_view.dart';
 import 'package:e_med/services/navigation/navigation_service.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'E-med',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

@@ -76,7 +76,9 @@ class HospitalInfoView extends StatelessWidget {
                           return ListTile(
                             trailing: InkWell(
                               child: Icon(Icons.chevron_right),
-                              onTap: () {},
+                              onTap: () {
+                                context.read<HomeCubit>().changeToDinfo(info.dInfo[ind]);
+                              },
                             ),
                             leading: CircleAvatar(
                               backgroundImage:

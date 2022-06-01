@@ -1,6 +1,10 @@
+import 'package:flutter/scheduler.dart';
+
 class DoctorsInfoModel{
-  int rating;
+  String workPlace;
+  String workLocation;
   String workingDay;
-  String workingHour;
-  DoctorsInfoModel(this.rating,this.workingDay,this.workingHour);
+  String workingHour; 
+  int rating;
+  DoctorsInfoModel(this.workPlace,this.workLocation,this.rating,this.workingDay,this.workingHour);
 }

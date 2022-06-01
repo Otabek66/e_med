@@ -1,3 +1,4 @@
+import 'package:e_med/models/doctors_model.dart';
 import 'package:e_med/models/hospital_model.dart';
 
 abstract class HomeState {
@@ -30,7 +31,7 @@ class HospitalInfoState extends HomeState{
 }
 
 class DoctorsInfoState extends HomeState{
-  HospitalModel hinfo;
+  DoctorsModel hinfo;
   DoctorsInfoState(this.hinfo);
 }
 

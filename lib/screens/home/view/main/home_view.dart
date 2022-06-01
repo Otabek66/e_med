@@ -3,6 +3,7 @@ import 'package:e_med/screens/home/cubit/home_cubit.dart';
 import 'package:e_med/screens/home/state/home_state.dart';
 import 'package:e_med/screens/home/view/pages/booking/bookingpage.dart';
 import 'package:e_med/screens/home/view/pages/calendar/home_page.dart';
+import 'package:e_med/screens/home/view/pages/hospital/doctor_info_view.dart';
 import 'package:e_med/screens/home/view/pages/hospital/hospital_info_page.dart';
 import 'package:e_med/screens/home/view/pages/hospital/hospital_search.dart';
 import 'package:e_med/screens/home/view/pages/hospital/hospital_view.dart';
@@ -40,7 +41,7 @@ class HomeMainView extends StatelessWidget {
             return HospitalInfoView(info: state.hinfo);
           } 
           else if (state is DoctorsInfoState) {
-            return HospitalInfoView(info: state.hinfo);
+            return DoctorView(info: state.hinfo);
           }else if (state is BookingState) {
             return const BookingPage();
           } else {
