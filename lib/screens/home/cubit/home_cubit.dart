@@ -11,7 +11,7 @@ import 'package:flutter/services.dart' as bundle;
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(Homemain());
-  
+
    static List datainfo = [];
 
   Future<List> getData() async {
@@ -54,26 +54,23 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  // search(String value) {
-  //   for (var i = 0; i < globalList![0].length; i++) {
-  //     if (value.isEmpty) {
-  //       searchList!.clear();
-  //       emit(HospitalState(globalList));
-  //     } else if (globalList![0][i]['name']
-  //         .toString()
-  //         .toLowerCase()
-  //         .contains(value.toString().toLowerCase())) {
-  //       searchList!.add(globalList![0][i]);
-  //       print("globalList ${globalList![0][i]['name']}");
-  //       print(searchList!.toList());
-  //       // debugPrint(searchList!.toList()[i].runtimeType.toString());
-  //       emit(HomeComplete(homeModel: globalList));
-  //       return globalList!.toList();
-  //     } else {
-  //       searchList!.clear();
-  //       emit(HomeComplete(homeModel: globalList));
-  //     }
-  //   }
+  Set<HospitalModel> temp ={};
+
+ void searching(String text) {
+    temp.clear();
+    for (var i = 0; i < hinfo.length; i++) {
+      if (text.isEmpty) {
+        temp.clear();
+        emit(HospitalState());
+      } else if (hinfo[i].name
+          .toString()
+          .toLowerCase()
+          .contains(text.toString().toLowerCase())) {
+        temp.add(hinfo[i]);
+        emit(HospitalState());
+      }
+    }
+  }
 
   List<HospitalModel> hinfo = [
     HospitalModel(
@@ -100,7 +97,7 @@ class HomeCubit extends Cubit<HomeState> {
     ),
      HospitalModel(
        "assets/images/hospitals/hospitaltwo.png",
-      "Uzbekistan New International Clinic",
+      "Tashkent international",
       "Tashkent, Shaykhontokhur, Navoi street",
       "+998 97 210 11 12",
       "Monday - Saturday",

@@ -21,6 +21,7 @@ class HospitalSearchView extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    var temp = context.watch<HomeCubit>().temp;
     var hinfo = context.watch<HomeCubit>().hinfo;
     return Scaffold(
       body: SafeArea(
@@ -50,6 +51,9 @@ class HospitalSearchView extends StatelessWidget {
                   height: 36,
                   child: TextFormField(
                     decoration: inputDecarartion(),
+                    onChanged: (text) {
+                      context.read<HomeCubit>().searching(text);
+                    },
                   ),
                 ),
               ),
@@ -63,79 +67,151 @@ class HospitalSearchView extends StatelessWidget {
                   style: TextStyle(fontSize: 16),
                 ),
               ),
-              Expanded(
-                child: ListView.builder(
-                  itemBuilder: (ctx, ind) {
-                    return Column(
-                      children: [
-                        InkWell(
-                          child: Container(
-                              width: context.w * 0.893,
-                              child: Stack(
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(15),
-                                        topRight: Radius.circular(15)),
-                                    child: FadeInImage(
-                                      fit: BoxFit.cover,
-                                      placeholder:
-                                          AssetImage('assets/gifs/loading.gif'),
-                                      image: AssetImage(hinfo[ind].image),
-                                    ),
-                                  ),
-                                  Positioned(
-                                    left: 12,
-                                    child: SizedBox(
-                                      width: context.w * 0.28,
-                                      child: Chip(
-                                          label: Row(
-                                        children: [
-                                          SvgPicture.asset(
-                                              'assets/icons/calendar.svg'),
-                                          SizedBox(
-                                            width: 10,
-                                          ),
-                                          //Here datas should come from database
-                                          Text("Mon - Sat"),
-                                        ],
-                                      )),
-                                    ),
-                                  ),
-                                  Positioned(
-                                    left: 139,
-                                    child: SizedBox(
-                                      width: context.w * 0.32,
-                                      child: Chip(
-                                        label: Row(
-                                          children: [
-                                            SvgPicture.asset(
-                                                'assets/icons/clock.svg'),
-                                            SizedBox(
-                                              width: 10,
-                                            ),
-                                            Text("9:00 - 18:00")
-                                          ],
+              context.watch<HomeCubit>().temp.isEmpty
+                  ? Expanded(
+                      child: ListView.builder(
+                      itemBuilder: (ctx, ind) {
+                        return Column(
+                          children: [
+                            InkWell(
+                              child: Container(
+                                  width: context.w * 0.893,
+                                  child: Stack(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: const BorderRadius.only(
+                                            topLeft: Radius.circular(15),
+                                            topRight: Radius.circular(15)),
+                                        child: FadeInImage(
+                                          fit: BoxFit.cover,
+                                          placeholder: AssetImage(
+                                              'assets/gifs/loading.gif'),
+                                          image: AssetImage(hinfo[ind].image),
                                         ),
                                       ),
-                                    ),
-                                  )
-                                ],
-                              )),
-                          onTap: () {
-                            context
-                                .read<HomeCubit>()
-                                .changeState(HospitalInfoState(hinfo[ind]));
-                          },
-                        ),
-                        TextWidget.textwidget(hinfo[ind].name),
-                        Text(context.watch<HomeCubit>().hinfo[ind].location)
-                      ],
-                    );
-                  },
-                  itemCount: 4,
-                ),
-              )
+                                      Positioned(
+                                        left: 12,
+                                        child: SizedBox(
+                                          width: context.w * 0.28,
+                                          child: Chip(
+                                              label: Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                  'assets/icons/calendar.svg'),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              //Here datas should come from database
+                                              Text("Mon - Sat"),
+                                            ],
+                                          )),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        left: 139,
+                                        child: SizedBox(
+                                          width: context.w * 0.32,
+                                          child: Chip(
+                                            label: Row(
+                                              children: [
+                                                SvgPicture.asset(
+                                                    'assets/icons/clock.svg'),
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Text("9:00 - 18:00")
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  )),
+                              onTap: () {
+                                context
+                                    .read<HomeCubit>()
+                                    .changeState(HospitalInfoState(hinfo[ind]));
+                              },
+                            ),
+                            TextWidget.textwidget(hinfo[ind].name),
+                            Text(context.watch<HomeCubit>().hinfo[ind].location)
+                          ],
+                        );
+                      },
+                      itemCount: hinfo.length,
+                    ))
+                  : Expanded(
+                      child: ListView.builder(
+                      itemBuilder: (ctx, ind) {
+                        return Column(
+                          children: [
+                            InkWell(
+                              child: Container(
+                                  width: context.w * 0.893,
+                                  child: Stack(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: const BorderRadius.only(
+                                            topLeft: Radius.circular(15),
+                                            topRight: Radius.circular(15)),
+                                        child: FadeInImage(
+                                          fit: BoxFit.cover,
+                                          placeholder: AssetImage(
+                                              'assets/gifs/loading.gif'),
+                                          image: AssetImage(temp.toList()[ind].image),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        left: 12,
+                                        child: SizedBox(
+                                          width: context.w * 0.28,
+                                          child: Chip(
+                                              label: Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                  'assets/icons/calendar.svg'),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              //Here datas should come from database
+                                              Text("Mon - Sat"),
+                                            ],
+                                          )),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        left: 139,
+                                        child: SizedBox(
+                                          width: context.w * 0.32,
+                                          child: Chip(
+                                            label: Row(
+                                              children: [
+                                                SvgPicture.asset(
+                                                    'assets/icons/clock.svg'),
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Text("9:00 - 18:00")
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  )),
+                              onTap: () {
+                                context
+                                    .read<HomeCubit>()
+                                    .changeState(HospitalInfoState(hinfo[ind]));
+                              },
+                            ),
+                            TextWidget.textwidget(temp.toList()[ind].name),
+                            Text(temp.toList()[ind].location)
+                          ],
+                        );
+                      },
+                      itemCount:temp.length,
+                    ))
             ],
           ),
         ),
@@ -150,7 +226,6 @@ class HospitalSearchView extends StatelessWidget {
         color: Colors.grey,
       ),
       suffixIcon: Icon(Icons.search),
-      
     );
   }
 }
