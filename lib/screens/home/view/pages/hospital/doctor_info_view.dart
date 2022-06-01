@@ -41,15 +41,20 @@ class DoctorInfoView extends StatelessWidget {
                 radius: 60,
                 backgroundImage: AssetImage(info.image),
               ),
-                  SizedBox(height: context.w * 0.06,),
-
+              SizedBox(
+                height: context.w * 0.06,
+              ),
               TextWidget.textwidget(info.name),
-                  SizedBox(height: context.w * 0.02,),
+              SizedBox(
+                height: context.w * 0.02,
+              ),
               TextWidget.textwidget(info.spes,
                   color: ColorConst.blackfortext,
                   fontWeight: FontWeight.normal,
                   size: 16),
-                  SizedBox(height: context.w * 0.04,),
+              SizedBox(
+                height: context.w * 0.04,
+              ),
               Container(
                 margin: EdgeInsets.only(bottom: context.w * 0.04),
                 width: context.w * 0.893,
@@ -82,25 +87,26 @@ class DoctorInfoView extends StatelessWidget {
                             children: [
                               Container(
                                 // color: Colors.red,
-                                width: context.w * 0.337,
+                                width: context.w * info.info[0].rating*0.08425,
                                 height: context.w * 0.13,
                                 child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
                                   itemBuilder: (ctx, ind) {
                                     return Container(
-                                        margin: EdgeInsets.only(
-                                            right: context.w * 0.037),
-                                        height: 20,
-                                        width: 20,
-                                        child: SvgPicture.asset(
-                                            'assets/icons/staryellow.svg'));
+                                      margin: EdgeInsets.only(
+                                          right: context.w * 0.037),
+                                      height: 20,
+                                      width: 20,
+                                      child: SvgPicture.asset(
+                                          'assets/icons/staryellow.svg'),
+                                    );
                                   },
                                   itemCount: info.info[0].rating,
                                 ),
                               ),
                               Container(
                                 // color: Colors.yellow,
-                                width: context.w * 0.1,
+                                width: context.w * (5 - info.info[0].rating) * 0.08425,
                                 height: context.w * 0.13,
                                 child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
@@ -124,10 +130,8 @@ class DoctorInfoView extends StatelessWidget {
                   ],
                 ),
               ),
-              
-              ElevatedButtonWidget.elevatedButton(context, "Book an appointment", () {
-
-               })
+              ElevatedButtonWidget.elevatedButton(
+                  context, "Book an appointment", () {})
             ],
           ),
         ),

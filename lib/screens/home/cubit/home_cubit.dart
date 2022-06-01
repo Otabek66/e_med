@@ -11,7 +11,7 @@ import 'package:flutter/services.dart' as bundle;
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(Homemain());
-
+  
    static List datainfo = [];
 
   Future<List> getData() async {
@@ -86,7 +86,7 @@ class HomeCubit extends Cubit<HomeState> {
       "See on google maps",
       "tashclink.org",
       [
-        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog",[DoctorsInfoModel("Uzbekistan New International Clinic","Tashkent, Shaykhontokhur, Navoi street",4,"Monday - Saturday","10:00 - 16:00")]),
+        DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog",[DoctorsInfoModel("Uzbekistan New International Clinic","Tashkent, Shaykhontokhur, Navoi",2,"Monday - Saturday","10:00 - 16:00")]),
         DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog",[DoctorsInfoModel("Uzbekistan New International","Tashkent, Shaykhontokhur, Navoi street",4,"Monday - Saturday","10:00 - 16:00")]),
         DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog",[DoctorsInfoModel("Uzbekistan New International Clinic","Tashkent, Shaykhontokhur, Navoi street",4,"Monday - Saturday","10:00 - 16:00")]),
         DoctorsModel("assets/images/doctors/doctor.png", "Mavlonov Boburjon", "Pediatric Pulmonolog",[DoctorsInfoModel("Uzbekistan New International Clinic","Tashkent, Shaykhontokhur, Navoi street",4,"Monday - Saturday","10:00 - 16:00")]),
