@@ -1,12 +1,26 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:e_med/models/doctors_info_model.dart';
 import 'package:e_med/models/doctors_model.dart';
 import 'package:e_med/models/hospital_model.dart';
 import 'package:e_med/screens/home/state/home_state.dart';
 import 'package:e_med/screens/home/view/pages/hospital/hospital_search.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' as bundle;
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(Homemain());
+
+   static List datainfo = [];
+
+  Future<List> getData() async {
+    final data = await bundle.rootBundle.loadString('lib/mock/data.json');
+    final list = jsonDecode(data) as List;
+    debugPrint(list.toString());
+    datainfo.add(list);
+    return list;
+  }
 
   int currentpage = 0;
   // List globalList;

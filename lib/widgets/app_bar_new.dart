@@ -19,7 +19,7 @@ class AppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: bottom == SizedBox ? context.h * 0.07 : context.h * 0.193,
+      height: context.h * 0.07,
       child: Column(children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,

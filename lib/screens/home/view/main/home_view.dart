@@ -4,6 +4,7 @@ import 'package:e_med/screens/home/state/home_state.dart';
 import 'package:e_med/screens/home/view/pages/booking/bookingpage.dart';
 import 'package:e_med/screens/home/view/pages/calendar/home_page.dart';
 import 'package:e_med/screens/home/view/pages/hospital/doctor_info_view.dart';
+import 'package:e_med/screens/home/view/pages/hospital/filter_view.dart';
 import 'package:e_med/screens/home/view/pages/hospital/hospital_info_page.dart';
 import 'package:e_med/screens/home/view/pages/hospital/hospital_search.dart';
 import 'package:e_med/screens/home/view/pages/hospital/hospital_view.dart';
@@ -17,9 +18,14 @@ class HomeMainView extends StatelessWidget {
     Key? key,
   }) : super(key: key);
   @override
+
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit(),
+      create: (context){
+        var data = HomeCubit();
+        data.getData();
+        return data;
+      },
       child: homeScaffold(),
     );
   }
@@ -41,7 +47,10 @@ class HomeMainView extends StatelessWidget {
             return HospitalInfoView(info: state.hinfo);
           } 
           else if (state is DoctorsInfoState) {
-            return DoctorView(info: state.hinfo);
+            return DoctorInfoView(info: state.hinfo);
+          }
+          else if (state is FilterState) {
+            return FilterView();
           }else if (state is BookingState) {
             return const BookingPage();
           } else {

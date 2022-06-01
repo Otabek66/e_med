@@ -18,6 +18,7 @@ class SyringeState extends HomeState {
 }
 
 class DoctorState extends HomeState {
+  // List info;
   DoctorState();
 }
 
@@ -33,6 +34,10 @@ class HospitalInfoState extends HomeState{
 class DoctorsInfoState extends HomeState{
   DoctorsModel hinfo;
   DoctorsInfoState(this.hinfo);
+}
+class FilterState extends HomeState{
+
+  FilterState();
 }
 
 class BookingState {

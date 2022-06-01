@@ -5,6 +5,7 @@ import 'package:e_med/models/doctors_model.dart';
 import 'package:e_med/models/hospital_model.dart';
 import 'package:e_med/screens/home/state/home_state.dart';
 import 'package:e_med/widgets/app_bar_new.dart';
+import 'package:e_med/widgets/elevated_button_widget.dart';
 import 'package:e_med/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -14,9 +15,9 @@ import 'package:flutter_svg/parser.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../cubit/home_cubit.dart';
 
-class DoctorView extends StatelessWidget {
+class DoctorInfoView extends StatelessWidget {
   DoctorsModel info;
-  DoctorView({Key? key, required this.info}) : super(key: key);
+  DoctorInfoView({Key? key, required this.info}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,12 +41,17 @@ class DoctorView extends StatelessWidget {
                 radius: 60,
                 backgroundImage: AssetImage(info.image),
               ),
+                  SizedBox(height: context.w * 0.06,),
+
               TextWidget.textwidget(info.name),
+                  SizedBox(height: context.w * 0.02,),
               TextWidget.textwidget(info.spes,
                   color: ColorConst.blackfortext,
                   fontWeight: FontWeight.normal,
                   size: 16),
+                  SizedBox(height: context.w * 0.04,),
               Container(
+                margin: EdgeInsets.only(bottom: context.w * 0.04),
                 width: context.w * 0.893,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,27 +74,60 @@ class DoctorView extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                        TextWidget.textwidget('Rating',fontWeight: FontWeight.normal,size: 16,color: ColorConst.blackfortext),
-                        SizedBox(
-                          width: context.w * 0.5,
-                          height: context.w * 0.13,
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (ctx, ind) {
-                              return SizedBox(
-                                  height: 20,
-                                  width: 20,
-                                  child: SvgPicture.asset(
-                                      'assets/icons/staryellow.svg'));
-                            },
-                            itemCount: info.info[0].rating,
-                          ),
-                        )
-                      ]),
+                          TextWidget.textwidget('Rating',
+                              fontWeight: FontWeight.normal,
+                              size: 16,
+                              color: ColorConst.blackfortext),
+                          Row(
+                            children: [
+                              Container(
+                                // color: Colors.red,
+                                width: context.w * 0.337,
+                                height: context.w * 0.13,
+                                child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (ctx, ind) {
+                                    return Container(
+                                        margin: EdgeInsets.only(
+                                            right: context.w * 0.037),
+                                        height: 20,
+                                        width: 20,
+                                        child: SvgPicture.asset(
+                                            'assets/icons/staryellow.svg'));
+                                  },
+                                  itemCount: info.info[0].rating,
+                                ),
+                              ),
+                              Container(
+                                // color: Colors.yellow,
+                                width: context.w * 0.1,
+                                height: context.w * 0.13,
+                                child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (ctx, ind) {
+                                    return Container(
+                                        margin: EdgeInsets.only(
+                                            right: context.w * 0.037),
+                                        height: 20,
+                                        width: 20,
+                                        child: SvgPicture.asset(
+                                            'assets/icons/stargrey.svg'));
+                                  },
+                                  itemCount: 5 - info.info[0].rating,
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),
-              )
+              ),
+              
+              ElevatedButtonWidget.elevatedButton(context, "Book an appointment", () {
+
+               })
             ],
           ),
         ),

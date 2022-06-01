@@ -16,8 +16,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 class HospitalSearchView extends StatelessWidget {
-  
-  HospitalSearchView({Key? key,}) : super(key: key);
+  HospitalSearchView({
+    Key? key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     var hinfo = context.watch<HomeCubit>().hinfo;
@@ -41,18 +42,27 @@ class HospitalSearchView extends StatelessWidget {
                   width: context.w * 0.3,
                   child: IconConst.bluelogo,
                 ),
-                bottom: Padding(
-                  padding: const EdgeInsets.only(
-                      left: 20, right: 20, top: 18, bottom: 10),
-                  child: SizedBox(
-                    height: 36,
-                    child: TextFormField(
-                      decoration: inputDecarartion(),
-                    ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, right: 20, top: 18, bottom: 10),
+                child: SizedBox(
+                  height: 36,
+                  child: TextFormField(
+                    decoration: inputDecarartion(),
                   ),
                 ),
               ),
-              Text("Recommended hospitals for you"),
+              Padding(
+                padding: EdgeInsets.only(
+                    left: context.w * 0.05,
+                    top: context.w * 0.04,
+                    bottom: context.w * 0.04),
+                child: const Text(
+                  "Recommended hospitals for you",
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
               Expanded(
                 child: ListView.builder(
                   itemBuilder: (ctx, ind) {
@@ -60,21 +70,62 @@ class HospitalSearchView extends StatelessWidget {
                       children: [
                         InkWell(
                           child: Container(
-                            width: context.w * 0.893,
-                            child: ClipRRect(
-                              borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(15),
-                                  topRight: Radius.circular(15)),
-                              child: FadeInImage(
-                                fit: BoxFit.cover,
-                                placeholder:
-                                    AssetImage('assets/gifs/loading.gif'),
-                                image: AssetImage(hinfo[ind].image),
-                              ),
-                            ),
-                          ),
-                          onTap: (){
-                            context.read<HomeCubit>().changeState(HospitalInfoState(hinfo[ind]));
+                              width: context.w * 0.893,
+                              child: Stack(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(15),
+                                        topRight: Radius.circular(15)),
+                                    child: FadeInImage(
+                                      fit: BoxFit.cover,
+                                      placeholder:
+                                          AssetImage('assets/gifs/loading.gif'),
+                                      image: AssetImage(hinfo[ind].image),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    left: 12,
+                                    child: SizedBox(
+                                      width: context.w * 0.28,
+                                      child: Chip(
+                                          label: Row(
+                                        children: [
+                                          SvgPicture.asset(
+                                              'assets/icons/calendar.svg'),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          //Here datas should come from database
+                                          Text("Mon - Sat"),
+                                        ],
+                                      )),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    left: 139,
+                                    child: SizedBox(
+                                      width: context.w * 0.32,
+                                      child: Chip(
+                                        label: Row(
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/icons/clock.svg'),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text("9:00 - 18:00")
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              )),
+                          onTap: () {
+                            context
+                                .read<HomeCubit>()
+                                .changeState(HospitalInfoState(hinfo[ind]));
                           },
                         ),
                         TextWidget.textwidget(hinfo[ind].name),
@@ -93,16 +144,13 @@ class HospitalSearchView extends StatelessWidget {
   }
 
   InputDecoration inputDecarartion() {
-    return InputDecoration(
+    return const InputDecoration(
       hintText: "Search hospital",
       hintStyle: const TextStyle(
         color: Colors.grey,
       ),
       suffixIcon: Icon(Icons.search),
-      fillColor: ColorConst.grey2,
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(15.0),
-      ),
+      
     );
   }
 }

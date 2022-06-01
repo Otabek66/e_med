@@ -1,3 +1,4 @@
+
 import 'dart:ui';
 
 import 'package:e_med/core/constants/icons/icon_const.dart';
@@ -18,6 +19,7 @@ class HospitalInfoView extends StatelessWidget {
   HospitalModel info;
   HospitalInfoView({Key? key, required this.info}) : super(key: key);
 
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,9 +30,11 @@ class HospitalInfoView extends StatelessWidget {
           child: Column(
             children: [
               AppBarWidget(
-                trailing: IconConst.filter,
+                trailing: InkWell(child: IconConst.filter, onTap: (){
+                  context.read<HomeCubit>().changeState(FilterState());
+                },) ,
                 leading: InkWell(
-                  child: Row(children: [Icon(Icons.chevron_left)]),
+                  child: Icon(Icons.chevron_left) ,
                   onTap: () {
                     context.read<HomeCubit>().changeState(HospitalState());
                   },
@@ -70,8 +74,9 @@ class HospitalInfoView extends StatelessWidget {
                     ),
                     TextWidget.textwidget("Doctors at Hospital"),
                     SizedBox(
-                      height: 300,
+                      height: context.h * 0.7,
                       child: ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
                         itemBuilder: (ctx, ind) {
                           return ListTile(
                             trailing: InkWell(
