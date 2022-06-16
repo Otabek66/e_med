@@ -2,10 +2,21 @@ import 'package:e_med/screens/auth/view/auth_view.dart';
 import 'package:e_med/screens/home/state/home_state.dart';
 import 'package:e_med/screens/home/view/main/home_view.dart';
 import 'package:e_med/screens/home/view/pages/hospital/hospital_view.dart';
+import 'package:e_med/services/Boxservice.dart';
+import 'package:e_med/services/getstorage.dart';
 import 'package:e_med/services/navigation/navigation_service.dart';
 import 'package:flutter/material.dart';
-
-void main() {
+import 'package:get_storage/get_storage.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
+  await Storageservice.instance.storage.write("day", 10);
+  await Storageservice.instance.storage.write("houre", 2);
+  await Storageservice.instance.storage.write("month", 10);
+  await Hive.initFlutter();
+  await BoxService.instance.createBox();
   runApp(const MyApp());
 }
 

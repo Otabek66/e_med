@@ -12,6 +12,8 @@ import 'package:flutter/services.dart' as bundle;
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(Homemain());
 
+   static List dataList = [];
+   
    static List datainfo = [];
 
   Future<List> getData() async {

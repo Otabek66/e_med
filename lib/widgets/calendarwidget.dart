@@ -1,23 +1,24 @@
 import 'package:e_med/core/constants/color/ColorConst.dart';
-import 'package:e_med/screens/home/view/pages/calendar/meeting.dart';
-import 'package:e_med/screens/home/view/pages/calendar/meetingDateSource.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:e_med/services/getstorage.dart';
+import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
-class CalenDarWidgets extends StatelessWidget {
+class CalendarWidget extends StatelessWidget {
   final void Function(CalendarTapDetails)? onTap;
-  const CalenDarWidgets({required this.onTap, Key? key}) : super(key: key);
+  const CalendarWidget({required this.onTap, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SfCalendar(
-      dataSource: MeetingDataSource(getDate(
-        context: context,
-        location: Storageservice.instance.storage.read('location'),
-        day: Storageservice.instance.storage.read('day'),
-        month: Storageservice.instance.storage.read('month'),
-        houre: Storageservice.instance.storage.read('houre'),
-      )),
+      dataSource: MeetingService(
+        meetingData(
+          context: context,
+          location: "Storageservice.instance.storage.read('location')",
+          day: Storageservice.instance.storage.read('day') as int,
+          month: Storageservice.instance.storage.read('month'),
+          houre: Storageservice.instance.storage.read('houre'),
+        ),
+      ),
       firstDayOfWeek: 6,
       onTap: onTap,
       todayHighlightColor: ColorConst.red,
